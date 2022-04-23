@@ -99,7 +99,7 @@ const Footer = () => {
                 </Grid>
 
                 <Grid item xs={12} sm={6} bgcolor='secondary' textAlign='center'  >
-                  <Typography variant='h6' align='center' >©Copyright 2022 XcitEducation</Typography>
+                  <Typography variant='h6' align='center' >©Copyright 2022 EKaksha</Typography>
                 </Grid>
 
 

@@ -129,7 +129,7 @@ const Header = () => {
           </IconButton>
           <Typography variant="h6" className={classes.title} noWrap>
             <Link to={"/"} style={{ textDecoration: "none", color: "black" }}>
-              XcitEducation
+              {`<E-Kaksha />`}
             </Link>
           </Typography>
           {userInfo ? (
