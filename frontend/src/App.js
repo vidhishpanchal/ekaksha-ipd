@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
@@ -27,8 +27,53 @@ import Chatbot from "./components/Chatbot"
 import LandingPage from "./components/LandingPage"
 import Notes from "./components/Notes/Notes"
 import ChatEngine from "./components/ChatEngine/ChatEngine"
+import alanBtn from "@alan-ai/alan-sdk-web";
+import Viva from "./components/Viva"
+// import { useNavigate } from "react-router-dom"
+// import { useHistory } from "react-router-dom"
 
 function App() {
+
+  // const navigate = useNavigate();
+  // const history = useHistory()
+  // const alanKey =
+  //   "cfdac5b36d0a78de9cd6709b0a7e592e2e956eca572e1d8b807a3e2338fdd0dc/stage";
+  // useEffect(() => {
+  //   alanBtn({
+  //     key: alanKey,
+  //     onCommand: ({ command }) => {
+  //       if (command === "login") {
+  //         navigate("/signin");
+  //       } else if (command === "signup") {
+  //         navigate("/signup");
+  //       } else if (command === "home") {
+  //         navigate("/");
+  //       } else if (command === "maps") {
+  //         navigate("/map");
+  //       } else if (command === "blogs") {
+  //         navigate("/blogs");
+  //       }
+  //     },
+  //   });
+  // }, []);
+  // useEffect(() => {
+  //   alanBtn({
+  //     key: alanKey,
+  //     onCommand: ({ command }) => {
+  //       if (command === "login") {
+  //         history.push("/signin");
+  //       } else if (command === "signup") {
+  //         history.push("/signup");
+  //       } else if (command === "home") {
+  //         history.push("/");
+  //       } else if (command === "maps") {
+  //         history.push("/map");
+  //       } else if (command === "blogs") {
+  //         history.push("/blogs");
+  //       }
+  //     },
+  //   });
+  // }, []);
   return (
     <BrowserRouter>
       <Route path="/" component={LandingPage} exact></Route>
@@ -46,6 +91,7 @@ function App() {
       <Route path="/myProfile" component={ProfilePage} exact></Route>
       <Route path="/editProfile" component={EditProfilePage} exact></Route>
       <Route path="/codeCompiler" component={CodeCompiler} exact></Route>
+      <Route path="/viva" component={Viva} exact></Route>
       <Route path="/instructor/signin" component={InstructorSignin} exact></Route>
       <Route path="/instructor/signup" component={InstructorSignup} exact></Route>
       <Route path="/notes" component={Notes} exact />

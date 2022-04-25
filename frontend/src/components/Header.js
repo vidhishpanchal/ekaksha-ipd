@@ -21,6 +21,11 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import CodeIcon from "@mui/icons-material/Code";
 import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
+import ChatIcon from '@mui/icons-material/Chat';
+import NoteAddIcon from '@mui/icons-material/NoteAdd';
+import QuizIcon from '@mui/icons-material/Quiz';
+import LaptopChromebookIcon from '@mui/icons-material/LaptopChromebook';
+
 
 import { Link } from "react-router-dom";
 
@@ -178,9 +183,9 @@ const Header = () => {
         }}
       >
         <div className={classes.drawerHeader}>
-          <ListItem button key="XcitEducation">
+          <ListItem button key="E-kaksha">
 
-            <ListItemText primary="XcitEducation" />
+            <ListItemText primary="<E-Kaksha />" />
           </ListItem>
           <IconButton onClick={handleDrawerClose}>
             <ChevronLeftIcon />
@@ -211,19 +216,33 @@ const Header = () => {
         </Link>
         {userInfo ? (
           userInfo.data.isInstructor === true ? (
-            <Link
-              to={`/instructorcourses/${userInfo.data._id}`}
-              style={{ textDecoration: "none", color: "black" }}
-            >
-              <List>
-                <ListItem button disabled={userInfo === null} key="My Courses">
-                  <ListItemIcon>
-                    <CastForEducationIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="My Courses" />
-                </ListItem>
-              </List>
-            </Link>
+            <>
+              <Link
+                to={`/instructorcourses/${userInfo.data._id}`}
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <List>
+                  <ListItem button disabled={userInfo === null} key="My Courses">
+                    <ListItemIcon>
+                      <CastForEducationIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="My Courses" />
+                  </ListItem>
+                </List>
+              </Link>
+              <Link
+                to={`/viva`}
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <List>
+                  <ListItem button disabled={userInfo === null} key="Viva">
+                    <ListItemIcon>
+                      <QuizIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Viva" />
+                  </ListItem>
+                </List>
+              </Link></>
           ) : (
             <Link
               to={`/mycourses/${userInfo.data._id}`}
@@ -361,6 +380,45 @@ const Header = () => {
                 <CodeIcon />
               </ListItemIcon>
               <ListItemText primary="Code Compiler" />
+            </ListItem>
+          </List>
+        </Link>
+        <Link
+          to={"/courses"}
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          <List>
+            <ListItem button key="Trainings">
+              <ListItemIcon>
+                <LaptopChromebookIcon />
+              </ListItemIcon>
+              <ListItemText primary="Trainings" />
+            </ListItem>
+          </List>
+        </Link>
+        <Link
+          to={"/chat"}
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          <List>
+            <ListItem button key="Chat">
+              <ListItemIcon>
+                <ChatIcon />
+              </ListItemIcon>
+              <ListItemText primary="Chat" />
+            </ListItem>
+          </List>
+        </Link>
+        <Link
+          to={"/notes"}
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          <List>
+            <ListItem button key="Notes">
+              <ListItemIcon>
+                <NoteAddIcon />
+              </ListItemIcon>
+              <ListItemText primary="Notes" />
             </ListItem>
           </List>
         </Link>

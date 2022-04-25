@@ -39,6 +39,14 @@ import Header from "./Header";
 import { isUserEnrolled } from "../actions/userActions";
 import { createAssignment } from "../actions/assignmentActions";
 import QuizAnswers from "./quiz/QuizAnswers";
+import {
+  FacebookShareButton,
+  WhatsappShareButton,
+  LinkedinShareButton,
+  WhatsappIcon,
+  FacebookIcon,
+  LinkedinIcon,
+} from "react-share";
 
 function CircularProgressWithLabel(props) {
   return (
@@ -454,13 +462,14 @@ function CoursePage({ history, match }) {
 
     const options = {
       // key: "rzp_test_tOsI14GHZSP3U8", // Enter the Key ID generated from the Dashboard
-      key: process.env.REACT_APP_RAZORPAY_KEY_ID, // Enter the Key ID generated from the Dashboard
+      // key: process.env.REACT_APP_RAZORPAY_KEY_ID, // Enter the Key ID generated from the Dashboard
+      key: "rzp_test_gsduw01W3OiVdC", // Enter the Key ID generated from the Dashboard
       // amount: "50000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
       // currency: "INR",
       amount: data.amount,
       currency: data.currency,
       // order_id: data.id,
-      name: "XcitEducation",
+      name: "E-kaksha",
       description: "Transaction",
       // order_id: "order_9A33XWu170gUtm", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
       handler: function (response) {
@@ -548,17 +557,20 @@ function CoursePage({ history, match }) {
                 </Alert>
               </Collapse>
             ) : userInfo ? (
-              <Button
-                className={classes.enroll}
-                variant="contained"
-                onClick={displayRazorPay}
-              >
-                <span className={classes.enrollText}>
-                  Enroll Now
-                  <br />
-                  for Rs.{course.data.price}
-                </span>
-              </Button>
+              <>
+                <Button
+                  className={classes.enroll}
+                  variant="contained"
+                  onClick={displayRazorPay}
+                >
+                  <span className={classes.enrollText}>
+                    Enroll Now
+                    <br />
+                    for Rs.{course.data.price}
+                  </span>
+                </Button>
+
+              </>
             ) : (
               <Link to={"/signin"} style={{ textDecoration: "none" }}>
                 <Button className={classes.enroll} variant="contained">
@@ -569,6 +581,53 @@ function CoursePage({ history, match }) {
               </Link>
             )}
           </span>
+          <div style={{ postion: "relative", bottom: "100px", marginTop: "20px", padding: "5px" }}>
+            <FacebookShareButton
+              title="Share Course"
+              url={`http://trainings.ekaksha.com/${course.data._id}`}
+              quote={`${course.data.name} course! You can find details of the course below:
+                   Name: ${course.data.name}
+                   tagline: ${course.data.tagline}
+                   Price: Rs.${course.data.price} only
+                   Duration: Lifetime access
+                   Description: ${course.data.description}
+                   Link to purchase: http://trainings.ekaksha.com/${course.data._id}
+                   `}
+              hashtag={"#ekaksha, #course"}
+            >
+              <FacebookIcon size={40} round={true} />
+            </FacebookShareButton>
+            <WhatsappShareButton
+              title={`${course.data.name} course! You can find details of the course below:
+                   Name: ${course.data.name}
+                   tagline: ${course.data.tagline}
+                   Price: Rs.${course.data.price} only
+                   Duration: Lifetime access
+                   Description: ${course.data.description}
+                   Link to purchase: http:trainings.ekaksha.com/${course.data._id}`}
+              url={`http://trainings.ekaksha.com/${course.data._id}`}
+
+            //                     // url={`http://internships.xcitedu.com/allInternships`}
+            >
+              <WhatsappIcon size={40} round={true} />
+            </WhatsappShareButton>
+            <LinkedinShareButton
+              url={`http:trainings.ekaksha.com/${course.data._id}`}
+              title={`${course.data.name} course!`}
+              summary={`${course.data.name} course! You can find details of the course below:
+            Name: ${course.data.name}
+            tagline: ${course.data.tagline}
+            Price: Rs.${course.data.price} only
+            Duration: Lifetime access
+            Description: ${course.data.description}
+            Link to purchase: http//:trainings.ekaksha.com/${course.data._id}`}
+
+
+              source="www.xcitedu.com"
+            >
+              <LinkedinIcon size={40} round={true} />
+            </LinkedinShareButton>
+          </div>
         </div>
         <div className={classes.halfDiv}>
           <Grid container spacing={3}>
@@ -1037,11 +1096,11 @@ function CoursePage({ history, match }) {
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
-              <Typography>Why should I opt for XcitEducation?</Typography>
+              <Typography>Why should I opt for E-Kaksha?</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Typography>
-                XcitEducation provides you the professional curated
+                E-Kaksha provides you the professional curated
                 content by Indian instructors along with live doubt solving and
                 personal one to one mentorship which you won't find anywhere
                 else.
@@ -1103,7 +1162,7 @@ function CoursePage({ history, match }) {
             </AccordionSummary>
             <AccordionDetails>
               <Typography>
-                XcitEducation doesn't believe in the idea of teaching 100
+                E-Kaksha doesn't believe in the idea of teaching 100
                 students in 1 class where the student sometimes feels hesitant
                 to ask some doubts and where the other student feels that this
                 student is wasting his time by asking silly doubts. Moreover in
