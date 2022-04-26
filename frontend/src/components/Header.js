@@ -20,12 +20,21 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import CodeIcon from "@mui/icons-material/Code";
+import MicIcon from "@mui/icons-material/Mic";
 import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
 import ChatIcon from '@mui/icons-material/Chat';
 import NoteAddIcon from '@mui/icons-material/NoteAdd';
 import QuizIcon from '@mui/icons-material/Quiz';
 import LaptopChromebookIcon from '@mui/icons-material/LaptopChromebook';
-
+import BookIcon from "@material-ui/icons/Book";
+import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
+import CardGiftcardIcon from "@material-ui/icons/CardGiftcard";
+import ExploreIcon from "@material-ui/icons/Explore";
+import EqualizerIcon from "@material-ui/icons/Equalizer";
+import { InputLabel } from "@material-ui/core";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
 
 import { Link } from "react-router-dom";
 
@@ -114,6 +123,10 @@ const Header = () => {
       dispatch(logout());
     }
   };
+  const handleChange = (event) => {
+    // setAge(event.target.value);
+    console.log("change language");
+  };
 
   return (
     <div>
@@ -139,6 +152,31 @@ const Header = () => {
               {`<E-Kaksha />`}
             </Link>
           </Typography>
+          🌐
+          <Select
+            style={{ marginRight: "20px" }}
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            label="Age"
+            onChange={handleChange}
+          >
+            <MenuItem
+              value={10}
+              onClick={() => {
+                navigate("/");
+              }}
+            >
+              English
+            </MenuItem>
+            <MenuItem
+              value={20}
+              onClick={() => {
+                navigate("/hin");
+              }}
+            >
+              हिंदी
+            </MenuItem>
+          </Select>
           {userInfo ? (
             <>
               {/* <p style={{ color: "black" }}>Welcome,</p> */}
@@ -421,6 +459,19 @@ const Header = () => {
                 <NoteAddIcon />
               </ListItemIcon>
               <ListItemText primary="Notes" />
+            </ListItem>
+          </List>
+        </Link>
+        <Link
+          to={"/editProfileSpeech"}
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          <List>
+            <ListItem button key="Speech Form filling">
+              <ListItemIcon>
+                <MicIcon />
+              </ListItemIcon>
+              <ListItemText primary="Speech Form filling" />
             </ListItem>
           </List>
         </Link>

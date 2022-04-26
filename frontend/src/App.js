@@ -30,6 +30,8 @@ import ChatEngine from "./components/ChatEngine/ChatEngine"
 import alanBtn from "@alan-ai/alan-sdk-web";
 import Viva from "./components/Viva"
 import { useNavigate } from "react-router-dom"
+import SpeechyForm from "./components/SpeechyForm";
+import HindiHome from "./components/HindiHome"
 
 function App() {
 
@@ -105,8 +107,10 @@ function App() {
           exact
         ></Route>
         <Route path="/codeEditor/" element={<CodeEditor />} exact></Route>
+        <Route path="/hin" element={<HindiHome />} exact></Route>
+        <Route path="/editProfileSpeech" element={<SpeechyForm />} exact />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
       <Chatbot />
     </>
     // </BrowserRouter>
