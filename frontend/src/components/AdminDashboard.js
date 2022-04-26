@@ -27,12 +27,12 @@ import {
 } from "../actions/adminActions";
 import CourseTable from "./AdminCourses";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function AdminDashboard() {
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate()
   const [open, setOpen] = useState(false);
   useEffect(() => {
     dispatch(getAllUsers());
@@ -156,9 +156,9 @@ function AdminDashboard() {
         </Button>
         <Button
           style={{ textDecoration: "none", color: "white" }}
-          // onClick={() => {
-          //   alert("Logout");
-          // }}
+        // onClick={() => {
+        //   alert("Logout");
+        // }}
         >
           <a
             href="http://localhost:3000/"

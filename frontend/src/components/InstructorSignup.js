@@ -9,7 +9,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
@@ -62,6 +62,7 @@ const useStyles = makeStyles((theme) => ({
 
 function InstructorSignup({ history }) {
   const classes = useStyles();
+  const navigate = useNavigate()
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [showEmail, setShowEmail] = useState("");
@@ -89,7 +90,8 @@ function InstructorSignup({ history }) {
 
   useEffect(() => {
     if (userRegisterInfo) {
-      history.push("/signin");
+      // history.push("/signin");
+      navigate("/signin")
     }
   }, [userRegisterInfo, history]);
 

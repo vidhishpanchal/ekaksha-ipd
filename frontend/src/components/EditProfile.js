@@ -12,7 +12,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import Input from "@material-ui/core/Input";
-
+import { useNavigate } from "react-router-dom"
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -118,6 +118,7 @@ function createData(name, calories, fat, carbs, protein) {
 function EditProfilePage({ history }) {
   const classes = useStyles();
   const userLogin = useSelector((state) => state.userLogin);
+  const navigate = useNavigate()
   const { userInfo } = userLogin;
   const [names, setName] = useState(userInfo.data.name);
   // const [email, setEmail] = useState(userInfo.data.email);
@@ -294,7 +295,8 @@ function EditProfilePage({ history }) {
               return response;
             });
 
-          history.push("/myProfile");
+          // history.push("/myProfile");
+          navigate("/myProfile")
           dispatch({
             type: USER_LOGIN_SUCCESS,
             payload: userInfo,
@@ -362,7 +364,8 @@ function EditProfilePage({ history }) {
           return response;
         });
 
-      history.push("/myProfile");
+      // history.push("/myProfile");
+      navigate("/myProfile")
       dispatch({
         type: USER_LOGIN_SUCCESS,
         payload: userInfo,

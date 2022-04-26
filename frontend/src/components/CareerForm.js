@@ -15,7 +15,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 // import FormControl from "@mui/material/FormControl";
 import axios from "axios"
 import { useSelector } from "react-redux";
-
+import { useNavigate } from "react-router-dom"
 // Importing Header
 import Header from "./Header";
 
@@ -41,6 +41,7 @@ const useStyles = makeStyles({
 const CareerForm = ({ history, match }) => {
   const classes = useStyles();
   const [jobType, setjobType] = useState("");
+  const navigate = useNavigate()
   const [jobTypeError, setjobTypeError] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -63,7 +64,8 @@ const CareerForm = ({ history, match }) => {
   const [success, setSuccess] = useState(false);
   useEffect(() => {
     if (success === true) {
-      history.push(`/careerForm`);
+      // history.push(`/careerForm`);
+      navigate(`/careerForm`);
     }
   }, [success]);
 

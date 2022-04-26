@@ -11,7 +11,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../actions/userActions";
 
@@ -65,7 +65,7 @@ function SignIn({ history }) {
 
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(!show);
-
+  const navigate = useNavigate()
   const dispatch = useDispatch();
 
   const userLogin = useSelector((state) => state.userLogin);
@@ -73,8 +73,7 @@ function SignIn({ history }) {
 
   useEffect(() => {
     if (userInfo) {
-
-      history.push("/");
+      navigate("/");
     }
   }, [userInfo, history]);
 

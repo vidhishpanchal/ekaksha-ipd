@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import { Box } from "@material-ui/core";
-
+import { useNavigate, useParams } from "react-router-dom"
 // Importing Header
 import Header from "./Header";
 
@@ -37,6 +37,8 @@ const useStyles = makeStyles({
 const CreateChapter = ({ history, match }) => {
   const classes = useStyles();
   const [chpName, setChpName] = useState("");
+  const { id } = useParams()
+  const navigate = useNavigate()
   const [chpNo, setChpNo] = useState("");
   const [description, setDescription] = useState("");
   const [chapterVideoLink, setChapterVideoLink] = useState("");
@@ -47,7 +49,8 @@ const CreateChapter = ({ history, match }) => {
   const [successUploading, setSuccessUploading] = useState(false);
   useEffect(() => {
     if (successUploading === true) {
-      history.push(`/course/${match.params.id}`);
+      // history.push(`/course/${match.params.id}`);
+      navigate(`/course/${id}`);
     }
   }, [successUploading]);
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import Home from "./components/Home";
@@ -29,101 +29,87 @@ import Notes from "./components/Notes/Notes"
 import ChatEngine from "./components/ChatEngine/ChatEngine"
 import alanBtn from "@alan-ai/alan-sdk-web";
 import Viva from "./components/Viva"
-// import { useNavigate } from "react-router-dom"
-// import { useHistory } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 function App() {
 
-  // const navigate = useNavigate();
-  // const history = useHistory()
-  // const alanKey =
-  //   "cfdac5b36d0a78de9cd6709b0a7e592e2e956eca572e1d8b807a3e2338fdd0dc/stage";
-  // useEffect(() => {
-  //   alanBtn({
-  //     key: alanKey,
-  //     onCommand: ({ command }) => {
-  //       if (command === "login") {
-  //         navigate("/signin");
-  //       } else if (command === "signup") {
-  //         navigate("/signup");
-  //       } else if (command === "home") {
-  //         navigate("/");
-  //       } else if (command === "maps") {
-  //         navigate("/map");
-  //       } else if (command === "blogs") {
-  //         navigate("/blogs");
-  //       }
-  //     },
-  //   });
-  // }, []);
-  // useEffect(() => {
-  //   alanBtn({
-  //     key: alanKey,
-  //     onCommand: ({ command }) => {
-  //       if (command === "login") {
-  //         history.push("/signin");
-  //       } else if (command === "signup") {
-  //         history.push("/signup");
-  //       } else if (command === "home") {
-  //         history.push("/");
-  //       } else if (command === "maps") {
-  //         history.push("/map");
-  //       } else if (command === "blogs") {
-  //         history.push("/blogs");
-  //       }
-  //     },
-  //   });
-  // }, []);
+  const navigate = useNavigate();
+  const alanKey =
+    "cfdac5b36d0a78de9cd6709b0a7e592e2e956eca572e1d8b807a3e2338fdd0dc/stage";
+  useEffect(() => {
+    alanBtn({
+      key: alanKey,
+      onCommand: ({ command }) => {
+        if (command === "login") {
+          navigate("/signin");
+        } else if (command === "signup") {
+          navigate("/signup");
+        } else if (command === "home") {
+          navigate("/");
+        } else if (command === "maps") {
+          navigate("/map");
+        } else if (command === "blogs") {
+          navigate("/blogs");
+        }
+      },
+    });
+  }, []);
+
   return (
-    <BrowserRouter>
-      <Route path="/" component={LandingPage} exact></Route>
-      <Route path="/courses" component={Home} exact></Route>
-      <Route path="/signin" component={SignIn} exact></Route>
-      <Route path="/signup" component={SignUp} exact></Route>
-      <Route path="/course/:id" component={CoursePage} exact></Route>
-      <Route path="/leaderboard" component={LeaderBoard} exact></Route>
-      <Route path="/assignments/:id" component={Assignments} exact></Route>
-      <Route path="/admin/login" component={AdminLogin} exact></Route>
-      <Route path="/admin/access" component={AdminDashboard} exact></Route>
-      <Route path="/mycourses/:id" component={MyCoursesUser} exact></Route>
-      <Route path="/contactForm" component={ContactForm} exact></Route>
-      <Route path="/careerForm" component={CareerForm} exact></Route>
-      <Route path="/myProfile" component={ProfilePage} exact></Route>
-      <Route path="/editProfile" component={EditProfilePage} exact></Route>
-      <Route path="/codeCompiler" component={CodeCompiler} exact></Route>
-      <Route path="/viva" component={Viva} exact></Route>
-      <Route path="/instructor/signin" component={InstructorSignin} exact></Route>
-      <Route path="/instructor/signup" component={InstructorSignup} exact></Route>
-      <Route path="/notes" component={Notes} exact />
-      <Route path="/chat" component={ChatEngine} exact />
-      {/* <Route
+    // <BrowserRouter>
+    <>
+      <Routes>
+
+        <Route path="/" element={<LandingPage />} exact></Route>
+        <Route path="/courses" element={<Home />} exact></Route>
+        <Route path="/signin" element={<SignIn />} exact></Route>
+        <Route path="/signup" element={<SignUp />} exact></Route>
+        <Route path="/course/:id" element={<CoursePage />} exact></Route>
+        <Route path="/leaderboard" element={<LeaderBoard />} exact></Route>
+        <Route path="/assignments/:id" element={<Assignments />} exact></Route>
+        <Route path="/admin/login" element={<AdminLogin />} exact></Route>
+        <Route path="/admin/access" element={<AdminDashboard />} exact></Route>
+        <Route path="/mycourses/:id" element={<MyCoursesUser />} exact></Route>
+        <Route path="/contactForm" element={<ContactForm />} exact></Route>
+        <Route path="/careerForm" element={<CareerForm />} exact></Route>
+        <Route path="/myProfile" element={<ProfilePage />} exact></Route>
+        <Route path="/editProfile" element={<EditProfilePage />} exact></Route>
+        <Route path="/codeCompiler" element={<CodeCompiler />} exact></Route>
+        <Route path="/viva" element={<Viva />} exact></Route>
+        <Route path="/instructor/signin" element={<InstructorSignin />} exact></Route>
+        <Route path="/instructor/signup" element={<InstructorSignup />} exact></Route>
+        <Route path="/notes" element={<Notes />} exact />
+        <Route path="/chat" element={<ChatEngine />} exact />
+        {/* <Route
         path="/instructorcourses/:id"
         component={MyCoursesInstr}
         exact
       ></Route> */}
-      <Route
-        path="/instructorAssignments/:id"
-        component={InstructorAssignmentPage}
-        exact
-      ></Route>
-      {/* <Route path="/instructorcourses/:id" component={MyCoursesInstr} exact></Route> */}
-      <Route
-        path="/instructorcourses/:id"
-        component={MyCoursesInstr}
-        exact
-      ></Route>
-      <Route path="/createCourse" component={CreateCourse} exact></Route>
-      <Route path="/createChapter/:id" component={CreateChapter} exact></Route>
-      {/* <Route path="/quiz/:courseId" component={Quiz} exact></Route> */}
-      <Route
-        path="/discuss/:courseId"
-        component={DiscussionForum}
-        exact
-      ></Route>
-      <Route path="/codeEditor/" component={CodeEditor} exact></Route>
+        <Route
+          path="/instructorAssignments/:id"
+          element={<InstructorAssignmentPage />}
+          exact
+        ></Route>
+        {/* <Route path="/instructorcourses/:id" element={<MyCoursesInstr} exact></Route> */}
+        <Route
+          path="/instructorcourses/:id"
+          element={<MyCoursesInstr />}
+          exact
+        ></Route>
+        <Route path="/createCourse" element={<CreateCourse />} exact></Route>
+        <Route path="/createChapter/:id" element={<CreateChapter />} exact></Route>
+        {/* <Route path="/quiz/:courseId" element={<Quiz} exact></Route> */}
+        <Route
+          path="/discuss/:courseId"
+          element={<DiscussionForum />}
+          exact
+        ></Route>
+        <Route path="/codeEditor/" element={<CodeEditor />} exact></Route>
+      </Routes>
+      {/* <Footer /> */}
       <Chatbot />
-      <Footer />
-    </BrowserRouter>
+    </>
+    // </BrowserRouter>
   );
 }
 

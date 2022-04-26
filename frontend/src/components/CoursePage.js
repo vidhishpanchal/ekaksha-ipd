@@ -24,7 +24,7 @@ import TextField from "@material-ui/core/TextField";
 import { Box } from "@material-ui/core";
 import Carousel from "react-material-ui-carousel";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
-import { Link } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import VideoPlayer from "react-video-js-player";
 import Modal from "@material-ui/core/Modal";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
@@ -49,6 +49,7 @@ import {
 } from "react-share";
 
 function CircularProgressWithLabel(props) {
+
   return (
     <Box sx={{ position: "relative", display: "inline-flex" }}>
       <CircularProgress variant="determinate" {...props} />
@@ -279,11 +280,11 @@ const loadRazorPay = async () => {
 function CoursePage({ history, match }) {
   // ------------ MODAL
   const [modalOpen, setModalOpen] = useState(false);
-
+  const { id } = useParams();
+  const navigate = useNavigate()
   const handleOpen = () => {
     setModalOpen(true);
   };
-
   const handleClose = () => {
     setModalOpen(false);
   };
@@ -334,7 +335,7 @@ function CoursePage({ history, match }) {
         dispatch(
           createAssignment(
             userInfo.data._id,
-            match.params.id,
+            id,
             response.data.secure_url,
             githubLink,
             "submit",
@@ -353,7 +354,7 @@ function CoursePage({ history, match }) {
   const fetchQuiz = async () => {
     try {
       const { data } = await axios.get(
-        `https://trainingsbackend-xcitedu.herokuapp.com/course/getQuizByCourse/${match.params.id}`
+        `https://trainingsbackend-xcitedu.herokuapp.com/course/getQuizByCourse/${id}`
       );
       setData(data.data);
     } catch (err) {
@@ -364,7 +365,7 @@ function CoursePage({ history, match }) {
 
   useEffect(() => {
     fetchQuiz();
-  }, [match.params.id]);
+  }, [id]);
 
   const fetchQuizData = () => {
     const formattedCategory = data.map((cat) => {
@@ -401,14 +402,14 @@ function CoursePage({ history, match }) {
   useEffect(() => {
     if (allUserCourses.courses && allUserCourses.courses.data) {
       allUserCourses.courses.data.map((oneCourse) => {
-        if (oneCourse.courseId._id === match.params.id) {
+        if (oneCourse.courseId._id === IDBIndex) {
           setIsUserEnrolledInCourseFromAllCourses(true);
         }
       });
     }
 
     if (userInfo) dispatch(allUserCoursesAction(userInfo.data._id));
-    dispatch(oneCourseDetails(match.params.id));
+    dispatch(oneCourseDetails(id));
   }, [dispatch, match]);
 
   useEffect(() => {
@@ -441,7 +442,7 @@ function CoursePage({ history, match }) {
       if (userInfo) dispatch(allUserCoursesAction(userInfo.data._id));
       setIsUserEnrolledInCourseFromAllCourses(true);
       dispatch(
-        createAssignment(userInfo.data._id, match.params.id, "", "", "unsubmit")
+        createAssignment(userInfo.data._id, id, "", "", "unsubmit")
       );
     } else {
       alert("Could not complete payments");
@@ -623,7 +624,7 @@ function CoursePage({ history, match }) {
             Link to purchase: http//:trainings.ekaksha.com/${course.data._id}`}
 
 
-              source="www.xcitedu.com"
+              source="www.ekaksha.com"
             >
               <LinkedinIcon size={40} round={true} />
             </LinkedinShareButton>
@@ -1027,7 +1028,7 @@ function CoursePage({ history, match }) {
             className={classes.button}
             variant="contained"
             color="primary"
-            onClick={() => history.push(`/discuss/${match.params.id}`)}
+            onClick={() => navigate(`/discuss/${id}`)}
           >
             Discussion Forum
           </Button>

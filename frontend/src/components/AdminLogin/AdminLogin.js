@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { adminLogin } from "../../actions/adminActions";
-import { useDispatch, useSelector  } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import "./adminlogin.css"
 import TextField from "@material-ui/core/TextField"
@@ -47,30 +47,30 @@ const Login = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const history = useHistory();
+  const navigate = useNavigate()
 
-  const admin = useSelector((state)=> state.admin.adminDetails.data)
+  const admin = useSelector((state) => state.admin.adminDetails.data)
 
   const onSubmit = async (e) => {
-      e.preventDefault();
-      dispatch(adminLogin(email, password))
+    e.preventDefault();
+    dispatch(adminLogin(email, password))
   };
 
-  useEffect(()=> {
-    if(admin && admin.isAdmin===true) {
-      history.push("/admin/access")
+  useEffect(() => {
+    if (admin && admin.isAdmin === true) {
+      navigate("/admin/access")
     }
-  },[admin])
+  }, [admin])
   // const classes = useStyles();
-  
+
   return (
-    
+
     <div className={classes.login}>
       <div className={classes.loginDiv}>
         <div>
-        <div style={{display:"flex"}}>
-          <img src={"https://www.kindpng.com/picc/m/699-6997452_administrator-network-icons-system-avatar-computer-transparent-admin.png"} alt="logo" className="logo" />
-          <h1 style={{marginLeft:"5%"}}>Welcome, Admin!</h1>
+          <div style={{ display: "flex" }}>
+            <img src={"https://www.kindpng.com/picc/m/699-6997452_administrator-network-icons-system-avatar-computer-transparent-admin.png"} alt="logo" className="logo" />
+            <h1 style={{ marginLeft: "5%" }}>Welcome, Admin!</h1>
           </div>
           <hr />
           <p>
@@ -83,7 +83,7 @@ const Login = () => {
           <form onSubmit={onSubmit}>
             <div>
               <TextField
-              variant="outlined"
+                variant="outlined"
                 margin="normal"
                 required
                 fullWidth
@@ -95,7 +95,7 @@ const Login = () => {
             </div>
             <div>
               <TextField
-              variant="outlined"
+                variant="outlined"
                 margin="normal"
                 required
                 fullWidth
@@ -106,8 +106,8 @@ const Login = () => {
               />
             </div>
             <div>
-              <Button  variant="contained"
-              color="primary" onClick={onSubmit} className="loginButton">Sign In</Button>
+              <Button variant="contained"
+                color="primary" onClick={onSubmit} className="loginButton">Sign In</Button>
             </div>
           </form>
         </div>
