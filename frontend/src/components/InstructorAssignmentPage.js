@@ -11,6 +11,7 @@ import Header from "./Header";
 import { Button, Modal, TextField } from "@material-ui/core";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import { CircularProgress } from "@material-ui/core";
+import { useParams, useNavigate } from "react-router-dom"
 
 import CancelIcon from "@material-ui/icons/Cancel";
 
@@ -39,10 +40,11 @@ const InstructorAssignmentPage = ({ match }) => {
   //   let instructorAssignments = [];
   const [loaded, setLoaded] = useState(false);
   let vary = 0;
-
+  const navigate = useNavigate()
+  const { id } = useParams()
   useEffect(() => {
     fetch(
-      `https://trainingsbackend-xcitedu.herokuapp.com/assignment/getAllAssignmentsOfInstructor/${match.params.id}`,
+      `https://trainingsbackend-xcitedu.herokuapp.com/assignment/getAllAssignmentsOfInstructor/${id}`,
       { method: "GET" }
     )
       .then((response) =>
@@ -82,7 +84,7 @@ const InstructorAssignmentPage = ({ match }) => {
       .then((response) => {
         // setLoaded(false);
         fetch(
-          `https://trainingsbackend-xcitedu.herokuapp.com/assignment/getAllAssignmentsOfInstructor/${match.params.id}`,
+          `https://trainingsbackend-xcitedu.herokuapp.com/assignment/getAllAssignmentsOfInstructor/${id}`,
           { method: "GET" }
         )
           .then((response) => response.json())
@@ -134,7 +136,7 @@ const InstructorAssignmentPage = ({ match }) => {
         // setLoaded(false);
         // console.log(response);
         fetch(
-          `hhttps://trainingsbackend-xcitedu.herokuapp.com/assignment/getAllAssignmentsOfInstructor/${match.params.id}`,
+          `hhttps://trainingsbackend-xcitedu.herokuapp.com/assignment/getAllAssignmentsOfInstructor/${id}`,
           { method: "GET" }
         )
           .then((response) => response.json())

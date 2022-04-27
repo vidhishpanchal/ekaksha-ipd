@@ -15,7 +15,7 @@ import Input from "@material-ui/core/Input";
 import { useNavigate } from "react-router-dom"
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-
+import { useParams } from "react-router-dom";
 // Importing Header
 import Header from "./Header";
 import { USER_LOGIN_SUCCESS } from "../constants/userConstants";
@@ -264,7 +264,7 @@ function EditProfilePage({ history }) {
               Authorization: "Bearer " + localStorage.getItem("token"),
             },
             body: JSON.stringify({
-              // courseId: match.params.id,
+              // courseId: id,
               name: names,
               // email: email,
               profilePicture: response.data.secure_url,
@@ -333,7 +333,7 @@ function EditProfilePage({ history }) {
           Authorization: "Bearer " + localStorage.getItem("token"),
         },
         body: JSON.stringify({
-          // courseId: match.params.id,
+          // courseId: id,
           name: names,
           // email: email,
           profilePicture: "",
@@ -374,7 +374,7 @@ function EditProfilePage({ history }) {
       // dispatch(login(userInfo.data.email, password));
     }
   };
-
+  // const {id} = userParams()
   return (
     <>
       <Header />

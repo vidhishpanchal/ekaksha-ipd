@@ -397,6 +397,8 @@ function Home({ history }) {
                 </Container>
                 {/* Extra content */}
                 <Container className={classes.cardGrid}>
+                    <h1 style={{ textAlign: "center", fontSize: "50px", fontWeight: "bold" }}>Benefits</h1>
+                    <br />
                     <Grid container spacing={6}>
                         <Grid item xs={12} sm={6} md={4}>
                             <Card className={classes.card}>

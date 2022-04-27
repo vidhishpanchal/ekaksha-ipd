@@ -100,7 +100,7 @@ function SignUp({ history }) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        // courseId: match.params.id,
+        // courseId: id,
         email: email,
       }),
     };
@@ -127,7 +127,7 @@ function SignUp({ history }) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        // courseId: match.params.id,
+        // courseId: id,
         email: email,
         otpCode: enteredOtp,
       }),
@@ -160,7 +160,7 @@ function SignUp({ history }) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        // courseId: match.params.id,
+        // courseId: id,
         mobileNumber: mobileNumber,
       }),
     };
@@ -195,7 +195,7 @@ function SignUp({ history }) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        // courseId: match.params.id,
+        // courseId: id,
         mobileNumber: mobileNumber,
         otpCode: enteredMobileOtp,
       }),
@@ -235,7 +235,7 @@ function SignUp({ history }) {
   return (
     <>
       {/* <Header /> */}
-      <Grid container component="main" className={classes.root}>
+      <Grid container component="main" className={classes.root} style={{ marginBottom: "50px" }}>
         <CssBaseline />
         <Grid item xs={false} sm={4} md={7} className={classes.image} />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6}>

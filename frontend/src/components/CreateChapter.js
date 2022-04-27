@@ -49,7 +49,7 @@ const CreateChapter = ({ history, match }) => {
   const [successUploading, setSuccessUploading] = useState(false);
   useEffect(() => {
     if (successUploading === true) {
-      // history.push(`/course/${match.params.id}`);
+      // history.push(`/course/${id}`);
       navigate(`/course/${id}`);
     }
   }, [successUploading]);
@@ -66,7 +66,7 @@ const CreateChapter = ({ history, match }) => {
   };
 
   const createChapterSubmitHandler = async () => {
-    // console.log(match.params.id);
+    // console.log(id);
     const formData = new FormData();
     formData.append("file", chapterVideoLink);
     formData.append("upload_preset", "ude8cxll");
@@ -79,7 +79,7 @@ const CreateChapter = ({ history, match }) => {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            // courseId: match.params.id,
+            // courseId: id,
             chapterNumber: chpNo,
             chapterName: chpName,
             chapterVideoLink: response.data.secure_url,
@@ -88,7 +88,7 @@ const CreateChapter = ({ history, match }) => {
         };
         // setPublicIdd(response.data.secure_url);
         fetch(
-          `https://trainingsbackend-xcitedu.herokuapp.com/course/createChapter/${match.params.id}`,
+          `https://trainingsbackend-xcitedu.herokuapp.com/course/createChapter/${id}`,
           requestOptions
         )
           .then((response) => {

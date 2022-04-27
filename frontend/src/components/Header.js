@@ -225,7 +225,7 @@ const Header = () => {
         <div className={classes.drawerHeader}>
           <ListItem button key="E-kaksha">
 
-            <ListItemText primary="<E-Kaksha />" />
+            <ListItemText primary={<h4>{`<E-Kaksha />`}</h4>} />
           </ListItem>
           <IconButton onClick={handleDrawerClose}>
             <ChevronLeftIcon />

@@ -99,7 +99,7 @@ export default function CreateCourse() {
           )
           // createAssignment(
           //   userInfo.data._id,
-          //   match.params.id,
+          //   id,
           //   response.data.secure_url,
           //   githubLink,
           //   "submit"
@@ -189,13 +189,13 @@ export default function CreateCourse() {
             type="file"
             classes={{
               root: classes.root,
-            
+
             }}
             onChange={(event) => {
               setImage(event.target.files[0]);
-            
+
             }}
-           
+
             className="upload-btn"
           >
             Upload Image File

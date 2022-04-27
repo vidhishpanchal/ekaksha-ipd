@@ -9,7 +9,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import GetAppIcon from "@material-ui/icons/GetApp";
 import { Button } from "@material-ui/core";
-
+import { useParams } from "react-router-dom"
 //PROGRESS
 import { CircularProgress } from "@material-ui/core";
 
@@ -54,10 +54,10 @@ const Assignments = ({ history, match }) => {
   const classes = useStyles();
   const [assignments, setAssignments] = useState({});
   const [loaded, setLoaded] = useState(false);
-
+  const { id } = useParams()
   useEffect(() => {
     fetch(
-      `https://trainingsbackend-xcitedu.herokuapp.com/assignment/getAssignmentsOfUser/${match.params.id}`,
+      `https://trainingsbackend-xcitedu.herokuapp.com/assignment/getAssignmentsOfUser/${id}`,
       { method: "GET" }
     )
       .then((response) =>

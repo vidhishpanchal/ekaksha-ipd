@@ -168,7 +168,7 @@ const ServiceCard = ({ link, title, img, clr }) => {
             <Link to={`/${link}`}
 
                 style={{ textDecoration: "none" }}>
-                <Card style={{ width: "100%", borderRadius: "30px", boxShadow: "5px 5px 25px 5px", padding: "10px", margin: "20px", backgroundColor: "#f216fa" }}>
+                <Card style={{ width: "100%", borderRadius: "30px", boxShadow: "5px 5px 25px 5px", padding: "10px", margin: "20px", backgroundColor: "#fc8b19" }}>
                     <CardContent className={classes.cardContent}>
                         <Typography gutterBottom variant="h" component="h2" style={{ color: "white" }}>
                             {title}

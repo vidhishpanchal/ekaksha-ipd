@@ -9,7 +9,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
@@ -62,6 +62,7 @@ const useStyles = makeStyles((theme) => ({
 
 function InstructorSignup({ history }) {
   const classes = useStyles();
+  const { id } = useParams()
   const navigate = useNavigate()
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -101,7 +102,7 @@ function InstructorSignup({ history }) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        // courseId: match.params.id,
+        // courseId: id,
         email: email,
       }),
     };
@@ -128,7 +129,7 @@ function InstructorSignup({ history }) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        // courseId: match.params.id,
+        // courseId: id,
         email: email,
         otpCode: enteredOtp,
       }),
@@ -161,7 +162,7 @@ function InstructorSignup({ history }) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        // courseId: match.params.id,
+        // courseId: id,
         mobileNumber: mobileNumber,
       }),
     };
@@ -196,7 +197,7 @@ function InstructorSignup({ history }) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        // courseId: match.params.id,
+        // courseId: id,
         mobileNumber: mobileNumber,
         otpCode: enteredMobileOtp,
       }),

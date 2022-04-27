@@ -53,6 +53,13 @@ function App() {
         } else if (command === "blogs") {
           navigate("/blogs");
         }
+        else if (command === "courses") {
+          navigate("/courses");
+        } else if (command === "notes") {
+          navigate("/notes");
+        } else if (command === "chat") {
+          navigate("/chat");
+        }
       },
     });
   }, []);

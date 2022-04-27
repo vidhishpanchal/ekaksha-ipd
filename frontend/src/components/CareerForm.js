@@ -120,7 +120,7 @@ const CareerForm = ({ history, match }) => {
       }
     }
     // console.log("hello");
-    // console.log(match.params.id);
+    // console.log(id);
     // const formData = new FormData();
     // formData.append("file", chapterVideoLink);
     // formData.append("upload_preset", "ude8cxll");
@@ -133,7 +133,7 @@ const CareerForm = ({ history, match }) => {
     //   method: "POST",
     //   headers: { "Content-Type": "application/json" },
     //   body: JSON.stringify({
-    //     // courseId: match.params.id,
+    //   courseId: id,
     //     name: name,
     //     email: email,
     //     mobileNumber: mobileNumber,

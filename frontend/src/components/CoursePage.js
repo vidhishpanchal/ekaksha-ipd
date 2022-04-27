@@ -464,7 +464,8 @@ function CoursePage({ history, match }) {
     const options = {
       // key: "rzp_test_tOsI14GHZSP3U8", // Enter the Key ID generated from the Dashboard
       // key: process.env.REACT_APP_RAZORPAY_KEY_ID, // Enter the Key ID generated from the Dashboard
-      key: "rzp_test_gsduw01W3OiVdC", // Enter the Key ID generated from the Dashboard
+      // key: "rzp_test_gsduw01W3OiVdC", // Enter the Key ID generated from the Dashboard
+      key: "rzp_live_qphFT30hy0aZcU",
       // amount: "50000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
       // currency: "INR",
       amount: data.amount,
