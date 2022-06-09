@@ -32,6 +32,7 @@ import Viva from "./components/Viva"
 import { useNavigate } from "react-router-dom"
 import SpeechyForm from "./components/SpeechyForm";
 import HindiHome from "./components/HindiHome"
+import RasaChatbot from "./components/RasaChatbot";
 
 function App() {
 
@@ -118,7 +119,8 @@ function App() {
         <Route path="/editProfileSpeech" element={<SpeechyForm />} exact />
       </Routes>
       <Footer />
-      <Chatbot />
+      {/* <RasaChatbot /> */}
+      {/* <Chatbot /> */}
     </>
     // </BrowserRouter>
   );

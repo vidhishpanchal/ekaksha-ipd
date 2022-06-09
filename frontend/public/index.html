@@ -41,6 +41,32 @@
   <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
   <script src="../src/FileSaver.js"></script>
   <script type="module" src="https://unpkg.com/@pdf-lib/fontkit@0.0.4"></script>
+
+
+  <!-- Script tag for rasa chatbot -->
+  <script>!(function () {
+    let e = document.createElement("script"),
+      t = document.head || document.getElementsByTagName("head")[0];
+    (e.src =
+      "https://cdn.jsdelivr.net/npm/rasa-webchat@1.x.x/lib/index.js"),
+      // Replace 1.x.x with the version that you want
+      (e.async = !0),
+      (e.onload = () => {
+        window.WebChat.default(
+          {
+            initPayload: '/greet',
+            customData: { language: "en" },
+            socketUrl: "http://localhost:5005",
+            title: "DSATbot",
+            subtitle: "Vidhish Panchal"
+            // add other props here
+          },
+          null
+        );
+      }),
+      t.insertBefore(e, t.firstChild);
+  })();
+  </script>
   <!-- <script src="../src/index.js"></script> -->
 </body>
 
