@@ -147,7 +147,7 @@ const CareerForm = ({ history, match }) => {
     //   }),
     // };
     // // setPublicIdd(response.data.secure_url);
-    // fetch(`http://localhost:8080/career/careerForm`, requestOptions)
+    // fetch(`https://trainingsbackend-xcitedu.herokuapp.com/career/careerForm`, requestOptions)
     //   .then((response) => {
     //     // console.log(response);
     //     response.json();

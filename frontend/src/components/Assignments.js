@@ -90,7 +90,7 @@ const Assignments = ({ history, match }) => {
         course: assignmentCourse,
       }),
     };
-    // await fetch(`http://localhost:8080/getCertificate`, requestOptions)
+    // await fetch(`https://trainingsbackend-xcitedu.herokuapp.com/getCertificate`, requestOptions)
     //   .then((response) => response.json())
     //   .then((response) => {
     //     console.log(response);

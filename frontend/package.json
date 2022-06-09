@@ -1,6 +1,7 @@
 {
   "name": "ekakshatrainingsfrontend",
   "homepage": "https://trainings2.xcitedu.com",
+  "proxy": "https://trainingsbackend-xcitedu.herokuapp.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -44,6 +45,7 @@
     "react-redux": "^7.2.5",
     "react-router-dom": "^6.3.0",
     "react-scripts": "4.0.3",
+    "react-scroll-to-bottom": "^4.2.0",
     "react-share": "^4.4.0",
     "react-video-js-player": "^1.1.1",
     "redux": "^4.1.1",

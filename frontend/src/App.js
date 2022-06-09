@@ -33,6 +33,7 @@ import { useNavigate } from "react-router-dom"
 import SpeechyForm from "./components/SpeechyForm";
 import HindiHome from "./components/HindiHome"
 import RasaChatbot from "./components/RasaChatbot";
+import ChatApp from "./components/chatsocket/ChatApp";
 
 function App() {
 
@@ -89,7 +90,8 @@ function App() {
         <Route path="/instructor/signin" element={<InstructorSignin />} exact></Route>
         <Route path="/instructor/signup" element={<InstructorSignup />} exact></Route>
         <Route path="/notes" element={<Notes />} exact />
-        <Route path="/chat" element={<ChatEngine />} exact />
+        {/* <Route path="/chat" element={<ChatEngine />} exact /> */}
+        <Route path="/chat" element={<ChatApp />} exact />
         {/* <Route
         path="/instructorcourses/:id"
         component={MyCoursesInstr}
