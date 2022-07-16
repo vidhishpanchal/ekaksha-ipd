@@ -402,7 +402,7 @@ function CoursePage({ history, match }) {
   useEffect(() => {
     if (allUserCourses.courses && allUserCourses.courses.data) {
       allUserCourses.courses.data.map((oneCourse) => {
-        if (oneCourse.courseId._id === IDBIndex) {
+        if (oneCourse.courseId._id === id) {
           setIsUserEnrolledInCourseFromAllCourses(true);
         }
       });
@@ -464,7 +464,7 @@ function CoursePage({ history, match }) {
     // rzp_test_tcMNwi8Df7jTJi
     // i7AwO58oL6ubrOFYQX7jBkr0
     const options = {
-      key: "rzp_test_tOsI14GHZSP3U8", // Enter the Key ID generated from the Dashboard
+      key: "rzp_test_vdRitP9HytsLLm", // Enter the Key ID generated from the Dashboard
       // key: process.env.REACT_APP_RAZORPAY_KEY_ID, // Enter the Key ID generated from the Dashboard
       // key: "rzp_test_gsduw01W3OiVdC", // Enter the Key ID generated from the Dashboard
       // key: "rzp_live_qphFT30hy0aZcU",
