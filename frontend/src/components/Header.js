@@ -475,7 +475,7 @@ const Header = () => {
             </ListItem>
           </List>
         </Link>
-        {/* <Link
+        <Link
           to={"/contactForm"}
           style={{ textDecoration: "none", color: "black" }}
         >
@@ -487,8 +487,8 @@ const Header = () => {
               <ListItemText primary="Contact Us" />
             </ListItem>
           </List>
-        </Link> */}
-        {/*    <Link
+        </Link>
+           <Link
           to={"/careerForm"}
           style={{ textDecoration: "none", color: "black" }}
         >
@@ -500,7 +500,7 @@ const Header = () => {
               <ListItemText primary="Career Opportunities" />
             </ListItem>
           </List>
-        </Link> */}
+        </Link>
         {/* <Link
           to={"/leaderboard"}
           style={{ textDecoration: "none", color: "black" }}
