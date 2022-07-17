@@ -501,7 +501,7 @@ const Header = () => {
             </ListItem>
           </List>
         </Link>
-        {/* <Link
+        <Link
           to={"/leaderboard"}
           style={{ textDecoration: "none", color: "black" }}
         > 
@@ -513,7 +513,7 @@ const Header = () => {
               <ListItemText primary="Leaderboard" />
             </ListItem>
           </List>
-        </Link> */}
+        </Link>
         <Divider />
         <Divider />
       </Drawer>

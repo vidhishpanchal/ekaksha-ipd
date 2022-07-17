@@ -47,13 +47,7 @@ const UserTable = () => {
     },
     {
       name: "Enrollment Date",
-      selector: (row) => new Date(row.createdAt).toLocaleDateString()
-    },
-    {
-      name: "Courses Enrolled",
-      cell: (row) => (
-        <Link to={`/user/:userId`}>View</Link>
-      ),
+      selector: (row) => new Date(row.createdAt).toLocaleDateString(),
     },
   ];
 

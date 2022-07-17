@@ -61,15 +61,17 @@ function CodeCompiler() {
     }
 
     return (
-        <>
-            <Header />
-            <br />
-            <h1 style={{ marginTop: "70px", textAlign: "center" }}>Code Compiler</h1>
-            <iframe
-                src="https://ide.codingblocks.com/"
-                style={{ height: "500px", width: "1000px", marginLeft: "250px" }}
-            />
-            <Grid style={{ marginTop: "80px" }} display="flex" ml={20} mt={6}>
+      <>
+        <Header />
+        <br />
+        <h1 style={{ marginTop: "50px", textAlign: "center" }}>
+          Code Compiler
+        </h1>
+        <iframe
+          src="https://ide.codingblocks.com/"
+          style={{ height: "100vh", width: "100%" }}
+        />
+        {/* <Grid style={{ marginTop: "80px" }} display="flex" ml={20} mt={6}>
                 <Grid Container>
                     <Grid item xs={12}>
                         <Typography mb={2}>
@@ -151,8 +153,8 @@ function CodeCompiler() {
                         />
                     </Grid>
                 </Grid>
-            </Grid>
-        </>
+            </Grid> */}
+      </>
     );
 }
 

@@ -49,35 +49,33 @@ const CourseTable = () => {
   const columns = [
     {
       name: "Name",
-      selector: row => row.course.name,
+      selector: (row) => row.course.name,
       sortable: true,
     },
     {
       name: "Instructor",
-      selector: row=> row.course.instructorId.name,
+      selector: (row) => row.course.instructorId.name,
       sortable: true,
     },
     {
-        name: "Type",
-        selector: row=> row.course.type
+      name: "Type",
+      selector: (row) => row.course.type,
     },
     {
-        name: "Price(₹)",
-        selector: row=> row.course.price
+      name: "Price(₹)",
+      selector: (row) => row.course.price,
     },
     {
-        name: "Enrollments",
-        selector: row=> row.count
+      name: "Enrollments",
+      selector: (row) => row.count,
     },
     {
       name: "Revenue(₹)",
-      selector: row=> row.course.price*row.count
+      selector: (row) => row.course.price * row.count,
     },
     {
       name: "Course",
-      cell: (row) => (
-        <Link to={`/courseLink`}>View</Link>
-      ),
+      cell: (row) => <Link to={`/course/${row.course._id}`}>View</Link>,
     },
   ];
 

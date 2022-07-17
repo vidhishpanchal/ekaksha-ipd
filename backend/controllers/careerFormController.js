@@ -18,7 +18,7 @@ const careerForm = asyncHandler(async (req, res) => {
 
   //   if (user) {
   const output = `
-        '<h2>Job Application received👻</h2>
+        '<h2>Job Application received</h2>
       <h4>Details of the candidate are as follows:</h3>
       <ul>
         <li>Job Type : ${jobType}</li>

@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import { Controlled as CodeMirror } from "react-codemirror2";
 import Pusher from "pusher-js";
 import pushid from "pushid";
-import axios from "axios";
 import Header from "../Header";
-import Footer from "../Footer";
 import Grid from "@material-ui/core/Grid";
 
 import "./codeEditor.css";
@@ -55,11 +53,11 @@ class CodeEditor extends Component {
   }
 
   syncUpdates = () => {
-    const data = { ...this.state };
+    // const data = { ...this.state };
 
-    axios
-      .post("http://localhost:5000/update-editor", data)
-      .catch(console.error);
+    // axios
+    //   .post("http://localhost:5000/update-editor", data)
+    //   .catch(console.error);
   };
 
   runCode = () => {

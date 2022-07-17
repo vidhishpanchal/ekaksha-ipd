@@ -122,7 +122,7 @@ function App() {
       </Routes>
       <Footer />
       {/* <RasaChatbot /> */}
-      {/* <Chatbot /> */}
+      <Chatbot />
     </>
     // </BrowserRouter>
   );
