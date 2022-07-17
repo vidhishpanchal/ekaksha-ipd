@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { Envelope, Lock, ArrowLeft } from "react-bootstrap-icons";
-import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { ArrowLeft } from "react-bootstrap-icons";
+import { Link, useNavigate } from "react-router-dom";
 // import FormControl from "../../UI/FormControl";
 // import Button from "../../UI/Button";
 // import useStore from "../../context/useStore";
 // import useAuthHook from "../../hooks/useAuthHook"
-import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button';
 // import alanBtn from "@alan-ai/alan-sdk-web";
 import Input from '@material-ui/core/Input';
 // import { useSpeechContext } from '@speechly/react-client';
 import { Grid, TextField, Typography } from "@material-ui/core";
-import { SpeechState, useSpeechContext } from "@speechly/react-client";
+import { useSpeechContext } from "@speechly/react-client";
 import { PushToTalkButton, PushToTalkButtonContainer, ErrorPanel } from '@speechly/react-ui';
 import formatDate from "./formatDate";
 import Header from "./Header"
@@ -30,7 +29,6 @@ const SpeechyForm = () => {
     })
     const navigate = useNavigate()
     //   const { user } = useStore();
-    const getlocation = useLocation();
     useEffect(() => {
         if (segment) {
             if (segment.intent.intent === 'add_expense') {
@@ -49,7 +47,6 @@ const SpeechyForm = () => {
 
             segment.entities.forEach((s) => {
                 console.log(s.value);
-                const category = `${s.value.charAt(0)}${s.value.slice(1).toLowerCase()}`;
                 switch (s.type) {
                     case 'name':
                         setFormData({ ...formData, name: s.value });
@@ -85,9 +82,6 @@ const SpeechyForm = () => {
         e.preventDefault();
         navigate("/")
     };
-    const handleChange = () => {
-        console.log("Change");
-    }
     return (<>
         <Header />
         <div style={{ backgroundColor: "yellow" }} className="h-screen bg-red-800 flex items-center justify-center">
